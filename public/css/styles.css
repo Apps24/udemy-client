@@ -6,3 +6,19 @@
   background-image: linear-gradient(to right, #007bff, #000);
   color: #fff;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.logo {
+  width: 85px;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.banner {
+  width: 100%;
+  height: 80vh;
+}

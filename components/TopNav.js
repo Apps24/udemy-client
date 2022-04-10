@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Menu } from "antd";
+import { Image, Menu } from "antd";
 import Link from "next/link";
 import {
   AppstoreOutlined,
@@ -39,7 +39,13 @@ const TopNav = () => {
 
   return (
     <Menu mode="horizontal" selectedKeys={[current]} className="mb-2">
-      <Item
+     
+        <Link href="/">
+          <img className="logo" src="https://udemy-testing-bucket.s3.ap-south-1.amazonaws.com/Yc7RA5YXlrhG-XevAO-_Y.jpeg" />
+        </Link>
+     
+      {/* <Item
+   
         key="/"
         onClick={(e) => setCurrent(e.key)}
         icon={<AppstoreOutlined />}
@@ -47,23 +53,16 @@ const TopNav = () => {
         <Link href="/">
           <a>App</a>
         </Link>
-      </Item>
+      </Item> */}
 
       {user && user.role && user.role.includes("Instructor") ? (
-        <Item
-          key="/instructor/course/create"
-          onClick={(e) => setCurrent(e.key)}
-          icon={<CarryOutOutlined />}
-        >
-          <Link href="/instructor/course/create">
-            <a>Create Course</a>
-          </Link>
-        </Item>
+      null
       ) : (
         <Item
           key="/user/become-instructor"
           onClick={(e) => setCurrent(e.key)}
           icon={<TeamOutlined />}
+          className="mb-4"
         >
           <Link href="/user/become-instructor">
             <a>Become Instructor</a>
@@ -74,7 +73,7 @@ const TopNav = () => {
       {user === null && (
         <>
           <Item
-            className="float-right"
+            className="float-right mt-3"
             key="/register"
             onClick={(e) => setCurrent(e.key)}
             icon={<UserAddOutlined />}
@@ -85,7 +84,7 @@ const TopNav = () => {
           </Item>
 
           <Item
-            className="float-right"
+            className="float-right mt-3"
             key="/login"
             onClick={(e) => setCurrent(e.key)}
             icon={<LoginOutlined />}
@@ -101,7 +100,7 @@ const TopNav = () => {
         <SubMenu
           icon={<CoffeeOutlined />}
           title={user && user.name}
-          className="float-right"
+          className="float-right mt-3"
         >
           <ItemGroup>
             <Item key="/user">
@@ -119,7 +118,7 @@ const TopNav = () => {
           key="/instructor"
           onClick={(e) => setCurrent(e.key)}
           icon={<TeamOutlined />}
-          className="float-right"
+          className="float-right mt-3"
         >
           <Link href="/instructor">
             <a>Instructor</a>
